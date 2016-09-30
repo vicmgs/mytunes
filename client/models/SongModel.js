@@ -4,6 +4,11 @@ var SongModel = Backbone.Model.extend({
   play: function() {
     // Triggering an event here will also trigger the event on the collection
     this.trigger('play', this);
+    var playcount = this.get('playcount') + 1;
+    this.set('playcount', playcount);
+    // console.log(this);
+    // console.log(this.get('title'));
+    // console.log(playcount);
   },
 
   enqueue: function() {
