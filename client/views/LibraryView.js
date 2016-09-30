@@ -5,7 +5,12 @@ var LibraryView = Backbone.View.extend({
 
   initialize: function() {
     this.render();
+    
     this.collection.on('reset', function() {
+      this.render();
+    }, this);
+
+    this.collection.on('change:playcount', function() {
       this.render();
     }, this);
   },
